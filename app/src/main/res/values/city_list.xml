@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="city_list">
+        <item>Toulouse</item>
+        <item>Paris</item>
+        <item>Lyon</item>
+    </string-array>
+
+</resources>
