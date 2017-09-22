@@ -19,7 +19,7 @@ Le menu contient aussi une entrée pour actualiser les données.
 Pour montrer à l'utilisateur que les données sont en cours de chargement un spinner est présenté
 sur le haut de l'interface. Il s'efface en lorsque les données ont été récupérées.
 
-Pour réagir aux événement lorsque des données ont été réci
+Un fois les données récupérées, une callback est appelée pour mettre à jour l'affichage.
 
 ### Données du programme
 
@@ -38,9 +38,10 @@ Le programme actuel récupère une liste de ville au démarrage via une requête
 avec des options de recherche pour que l'utilisateur puisse avoir plus de possibilité. L'affichage
 d'une telle liste serait à faire dans un fragment ou une activité dédiée.
 
-Une fois la liste reçue cela déclenche cityListener.onChange , qui va ensuite à partir des information
+Une fois la liste reçue cela déclenche cityListener.onFetch , qui va ensuite à partir des informations
 sur la ville interroger l'API de meteo pour la ville concernée.
 
+De même, une fois les données de météo reçues, weatherListener.onFetch est appelé et déclenche la mise à jour de l'UI.
 
 
 #### Les informations météo (WeatherElement )
@@ -123,7 +124,7 @@ Il faut pouvoir en fonction de la locale gérer les différences d'unité en fon
 Test:
 A ajouter.
 
-###Diagrammes
+### Diagrammes
 
 ![image](images/onActivityStartUp.png)
 ![image](images/updateWeatherOnCityChange.png)
