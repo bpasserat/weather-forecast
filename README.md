@@ -1,7 +1,7 @@
 # weather-forecast
 Weather forecast application
 
-##Objet de l'application weather-forecast
+## Objet de l'application weather-forecast
 
 Cette application présente le temps qu'il fait à l'utilisateur.
 
@@ -9,7 +9,7 @@ L'écran principal contient une icone réprésentant l'état du ciel.
 A la suite de cette icone il y a la température puis l'état du ciel sous format texte enfin des
 informations détaillées comme la pression , le vent et la date.
 
-##Conception de l'application
+## Conception de l'application
 
 L'application est basée sur une activité ( WeatherActivity )
 
@@ -21,11 +21,11 @@ sur le haut de l'interface. Il s'efface en lorsque les données ont été récup
 
 Pour réagir aux événement lorsque des données ont été réci
 
-###Données du programme
+### Données du programme
 
 Les données du programmes sont :
 
-####Les villes  : CityElement
+#### Les villes  : CityElement
 
 Les villes contiennent :
  - le nom de la ville
@@ -43,7 +43,7 @@ sur la ville interroger l'API de meteo pour la ville concernée.
 
 
 
-####Les informations météo (WeatherElement )
+#### Les informations météo (WeatherElement )
 
 Les informations météo ( WeatherElement ) qui contiennent :
  - la ville
@@ -57,7 +57,7 @@ Les informations météo ( WeatherElement ) qui contiennent :
 L'utilisation d'un tel objet n'est pas très évolutif. Pour gérer de nouvelle proprité il faut étendre l'objet.
 
 
-###Gestion des données
+### Gestion des données
 
 ### Définition du store
 
@@ -80,7 +80,7 @@ Etant donné le format des objet à charger , en ajoutant l'interface Serializab
 avoir une sauvegarde et le chargement.
 
 
-####Recherche de données
+#### Recherche de données
 La méthode find prend en paramétre un objet dont la classe implémente l'interface IMatcher.
 Cela permet d'éviter de développer à l'intérieur du store les différentes fonctions de recherche.
 L'interface IMatcher contient une méthode match qui renvoie true ou false en fonction des tests réalisés
@@ -89,7 +89,7 @@ Ce sont des fonctions simples pouvant être facilement testées unitairement.
 En retour il y a un tableau vide , ou avec les éléments pour lesquels le matcher à renvoyé vrai.
 
 
-####Récupération des données ( fetch )
+#### Récupération des données ( fetch )
 Cette fonction prend en paramètre pour configure le requête à faire. Elle réalise de manière asynchrone la récupération des données.
 Actuellement il s'agit d'un AsynTask dans laquelle il y a une pause de 5s et la génération de données
 de météo aléatoires ( sauf la ville précisée en paramètre et la date qui augment de 1 jour pour chaque élément).
@@ -103,7 +103,7 @@ indiquer qu'aucune donnée n'a été trouvée.
 
 Si un listener a été enregistré (set)  alors celui est exécuté lorsque les données ont été recupérées.
 
-##Evolution :
+## Evolutions
 
 L'écran principal de présentation devrait être utilisée sous forme de fragment pour présenter la
 météo des jours suivant.
