@@ -126,8 +126,13 @@ A ajouter.
 
 ### Diagrammes
 
+Diagramme de séquence lors du démarrage de l'activité
 ![image](images/onActivityStartUp.png)
+
+Diagramme de séquence lors d'un changement de ville
 ![image](images/updateWeatherOnCityChange.png)
+
+Diagramme de séquences lors d'une mise à jour des données météo.
 ![image](images/updateWeatherOnUpdate.png)
 
 
