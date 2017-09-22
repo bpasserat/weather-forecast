@@ -1,6 +1,8 @@
-package net.passerat.weatherforecast;
+package net.passerat.weatherforecast.store;
 
 import android.os.AsyncTask;
+
+import net.passerat.weatherforecast.data.CityElement;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,6 @@
-package net.passerat.weatherforecast;
+package net.passerat.weatherforecast.matcher;
+
+import net.passerat.weatherforecast.data.WeatherElement;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

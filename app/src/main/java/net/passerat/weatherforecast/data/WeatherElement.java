@@ -1,4 +1,4 @@
-package net.passerat.weatherforecast;
+package net.passerat.weatherforecast.data;
 
 import java.io.Serializable;
 import java.util.Date;

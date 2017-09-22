@@ -1,4 +1,4 @@
-package net.passerat.weatherforecast;
+package net.passerat.weatherforecast.matcher;
 
 /**
  * Created by bpasserat on 22/09/2017.

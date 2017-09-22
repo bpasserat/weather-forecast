@@ -18,6 +18,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import net.passerat.weatherforecast.data.CityElement;
+import net.passerat.weatherforecast.data.WeatherElement;
+import net.passerat.weatherforecast.matcher.CityElementMatcher;
+import net.passerat.weatherforecast.matcher.WeatherElementMatchers;
+import net.passerat.weatherforecast.store.CityStore;
+import net.passerat.weatherforecast.store.IStore;
+import net.passerat.weatherforecast.store.WeatherStore;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;

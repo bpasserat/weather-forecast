@@ -1,4 +1,6 @@
-package net.passerat.weatherforecast;
+package net.passerat.weatherforecast.store;
+
+import net.passerat.weatherforecast.matcher.IMatcher;
 
 import java.io.File;
 import java.util.ArrayList;
