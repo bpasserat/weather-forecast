@@ -31,6 +31,10 @@ public class CityStore extends AStore<CityElement> {
             "Monaco"
     ));
 
+    /**
+     * This function return a list of cities with random position ( latitude and longitude )
+     * @return
+     */
     private ArrayList<CityElement> getCities() {
         ArrayList<CityElement> cities =  new ArrayList<>();
         for ( String name : mCityList) {
@@ -41,10 +45,14 @@ public class CityStore extends AStore<CityElement> {
         return cities ;
     }
 
-
+    /**
+     * Fetch position from a city.
+     * it runs an async task to retrieve data from a server.
+     * Once the data are retrieved the onFetchListener is executed if it has been defined previously
+     * @param city city where the weather forecast is needed
+     */
     public void fetch(String url ) {
         //TODO : chargement depuis le réseau
-        // cette fonction est asynchrone et son retour doit déclencher onChange
         AsyncTask<Void , Void , ArrayList<CityElement>> asyncTask =
                 new AsyncTask<Void, Void, ArrayList<CityElement>>() {
                     @Override

@@ -19,9 +19,11 @@ public class WeatherStore extends AStore<WeatherElement> {
 
     private static final int MAX_RANDOM_ELEMENT = 15 ;
 
-    public WeatherStore() {
 
-    }
+    /**
+     * This function gives a random state, it is implemented to mock data
+     * @return random state of the sky
+     */
 
     WeatherElement.WeatherState getRandomState() {
         WeatherElement.WeatherState state ;
@@ -53,6 +55,11 @@ public class WeatherStore extends AStore<WeatherElement> {
         return state ;
     }
 
+
+    /**
+     * This function return random city , it is implemented to mock data
+     * @return
+     */
     String getRandomCity() {
         String city ;
         int min = 0 ;
@@ -75,6 +82,11 @@ public class WeatherStore extends AStore<WeatherElement> {
         return city ;
     }
 
+    /**
+     * This function generate random weather elements for a defined city
+     * @param city The city where the weather queried
+     * @return ArrayList of WeatherElements
+     */
     private ArrayList<WeatherElement> randomWeatherElements(String city ) {
         ArrayList<WeatherElement> ret = new ArrayList<>();
         Date date = Calendar.getInstance().getTime();
@@ -97,22 +109,14 @@ public class WeatherStore extends AStore<WeatherElement> {
     }
 
 
-
-    @Override
-    public ArrayList<WeatherElement> find( IMatcher<WeatherElement> matcher) {
-        ArrayList<WeatherElement> ret = new ArrayList<>();
-        for ( WeatherElement elem : mElements) {
-            if (matcher.match(elem)) {
-                ret.add(elem);
-            }
-        }
-        return ret ;
-    }
-
-
+    /**
+     * Fetch weather data from a place.
+     * it runs an async task to retrive data from a server.
+     * Once the data are retrieved the onFetchListener is executed if it has been defined previously
+     * @param city city where the weather forecast is needed
+     */
     public void fetch(final String city ) {
         //TODO : chargement depuis le réseau
-        // cette fonction est asynchrone et son retour doit déclencher onChange
         AsyncTask<Void , Void , ArrayList<WeatherElement>> asyncTask =
                 new AsyncTask<Void, Void, ArrayList<WeatherElement>>() {
             @Override

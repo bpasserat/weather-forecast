@@ -8,6 +8,12 @@ import java.util.ArrayList;
 
 /**
  * Created by bpasserat on 22/09/2017.
+ *
+ * This absatrct store is done to be usedby final classes to implement a Memory Store.
+ * All the data are kept in memory from load to save.
+ * The elements are kept in an ArrayList
+ *
+ *
  */
 
 public abstract class AStore<T> implements IStore<T> {
@@ -44,6 +50,11 @@ public abstract class AStore<T> implements IStore<T> {
     public void save(File file) {
         //TODO
     }
+
+    /**
+     *
+     * @param onFetchListener
+     */
 
     public void setOnFetchListener( IStore.OnFetchListener onFetchListener ) {
         this.onFetchListener = onFetchListener ;
