@@ -1,7 +1,12 @@
 package net.passerat.weatherforecast;
 
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
@@ -46,6 +51,16 @@ public class WeatherActivity extends AppCompatActivity implements
 
     public ArrayAdapter<CityElement> mCityAdapter ;
 
+    // Constants
+    // The authority for the sync adapter's content provider
+    public static final String AUTHORITY = "net.passerat.weatherforcast.provider";
+    // An account type, in the form of a domain name
+    public static final String ACCOUNT_TYPE = "passerat.net";
+    // The account name
+    public static final String ACCOUNT = "dummyaccount";
+    // Instance fields
+    Account mAccount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +74,35 @@ public class WeatherActivity extends AppCompatActivity implements
         mCityAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_activated_1,mCityStore.getAll() );
         mWeatherStore.setOnFetchListener( weatherListener );
 
+        mAccount = CreateSyncAccount(this);
+    }
 
+    public static Account CreateSyncAccount(Context context) {
+        // Create the account type and default account
+        Account newAccount = new Account(
+                ACCOUNT, ACCOUNT_TYPE);
+        // Get an instance of the Android account manager
+        AccountManager accountManager =
+                (AccountManager) context.getSystemService(
+                        ACCOUNT_SERVICE);
+        /*
+         * Add the account and account type, no password or user data
+         * If successful, return the Account object, otherwise report an error.
+         */
+        if (accountManager.addAccountExplicitly(newAccount, null, null)) {
+            /*
+             * If you don't set android:syncable="true" in
+             * in your <provider> element in the manifest,
+             * then call context.setIsSyncable(account, AUTHORITY, 1)
+             * here.
+             */
+        } else {
+            /*
+             * The account exists or some other error occurred. Log this, report it,
+             * or handle it internally.
+             */
+        }
+        return newAccount ;
     }
 
     private IStore.OnFetchListener cityListener = new IStore.OnFetchListener() {
@@ -127,6 +170,17 @@ public class WeatherActivity extends AppCompatActivity implements
                 dialogFragment.show(getSupportFragmentManager(), "my_city");
                 return true;
             case R.id.action_update :
+                // Pass the settings flags by inserting them in a bundle
+                Bundle settingsBundle = new Bundle();
+                settingsBundle.putBoolean(
+                        ContentResolver.SYNC_EXTRAS_MANUAL, true);
+                settingsBundle.putBoolean(
+                        ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
+        /*
+         * Request the sync for the default account, authority, and
+         * manual sync settings
+         */
+                ContentResolver.requestSync(mAccount, AUTHORITY, settingsBundle);
                 fetchData();
             default :
                 return super.onOptionsItemSelected(item);
@@ -199,5 +253,12 @@ public class WeatherActivity extends AppCompatActivity implements
                 toast.show();
             }
         }
+    }
+
+
+    public Cursor retrieveCities() {
+
+        Cursor cursor = null;
+        return cursor ;
     }
 }
