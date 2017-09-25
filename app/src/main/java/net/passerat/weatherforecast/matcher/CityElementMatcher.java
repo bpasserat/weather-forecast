@@ -12,10 +12,15 @@ public class CityElementMatcher {
 
         String mName ;
 
+        /**
+         * Constructor
+         * @param name name to be matched
+         */
         public MatchName(String name ) {
             this.mName = name ;
         }
         @Override
+
         public boolean match(CityElement elem) {
             if (mName.equals(elem.name)) {
                 return true ;
