@@ -20,7 +20,7 @@ public class CityStore extends AStore<CityElement> {
             "Marseille",
             "Toulouse",
             "Grenoble",
-            "Montpelier",
+            "Montpellier",
             "Dijon",
             "Lille",
             "Brest",
@@ -33,7 +33,7 @@ public class CityStore extends AStore<CityElement> {
 
     /**
      * This function return a list of cities with random position ( latitude and longitude )
-     * @return
+     * @return ArrayList f cities and their GPS positions
      */
     private ArrayList<CityElement> getCities() {
         ArrayList<CityElement> cities =  new ArrayList<>();
@@ -49,7 +49,7 @@ public class CityStore extends AStore<CityElement> {
      * Fetch position from a city.
      * it runs an async task to retrieve data from a server.
      * Once the data are retrieved the onFetchListener is executed if it has been defined previously
-     * @param city city where the weather forecast is needed
+     * @param url city where the weather forecast is needed
      */
     public void fetch(String url ) {
         //TODO : chargement depuis le réseau

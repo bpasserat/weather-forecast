@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by bpasserat on 22/09/2017.
  *
- * This absatrct store is done to be usedby final classes to implement a Memory Store.
+ * This abstract store is done to be used by final classes to implement a Memory Store.
  * All the data are kept in memory from load to save.
  * The elements are kept in an ArrayList
  *

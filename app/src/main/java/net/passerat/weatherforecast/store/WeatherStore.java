@@ -2,7 +2,6 @@ package net.passerat.weatherforecast.store;
 
 import android.os.AsyncTask;
 
-import net.passerat.weatherforecast.matcher.IMatcher;
 import net.passerat.weatherforecast.data.WeatherElement;
 
 import java.util.ArrayList;
@@ -58,7 +57,7 @@ public class WeatherStore extends AStore<WeatherElement> {
 
     /**
      * This function return random city , it is implemented to mock data
-     * @return
+     * @return name of a city
      */
     String getRandomCity() {
         String city ;
