@@ -11,7 +11,7 @@
     <string name="cloud">Cloud</string>
     <string name="rain">Rain</string>
     <string name="cancel">Cancel</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="configure_city">Select your city</string>
     <string name="unknown_city">Unknown city</string>
     <string name="data_not_matching">No weather data match city</string>
