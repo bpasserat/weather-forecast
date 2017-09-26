@@ -29,7 +29,28 @@ public class WeatherElementMatchers {
             }
             return false ;
         }
+
+
     }
 
+
+    public static class MatchCity implements IMatcher<WeatherElement> {
+
+        private String city ;
+
+        public MatchCity( String city) {
+            this.city = city ;
+        }
+
+        @Override
+        public boolean match(WeatherElement elem) {
+            if ( elem.city.equals(city)) {
+                return true ;
+            }
+            return false ;
+        }
+
+
+    }
 
 }
