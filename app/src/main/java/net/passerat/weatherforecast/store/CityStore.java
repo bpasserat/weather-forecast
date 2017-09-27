@@ -58,7 +58,7 @@ public class CityStore extends AStore<CityElement> {
                     @Override
                     protected ArrayList<CityElement> doInBackground(Void... voids) {
                         try {
-                            Thread.sleep(5000);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             //La precision du sleep n'est pas importante
                         }

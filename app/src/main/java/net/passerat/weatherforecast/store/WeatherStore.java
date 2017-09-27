@@ -121,7 +121,7 @@ public class WeatherStore extends AStore<WeatherElement> {
             @Override
             protected ArrayList<WeatherElement> doInBackground(Void... voids) {
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     //La precision du sleep n'est pas importante
                 }

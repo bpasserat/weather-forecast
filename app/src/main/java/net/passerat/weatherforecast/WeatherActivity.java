@@ -196,6 +196,7 @@ public class WeatherActivity extends AppCompatActivity implements
 
     @Override
     protected void onStop() {
+        super.onStop();
         mCityStore.save(null);
         mWeatherStore.save(null);
 
